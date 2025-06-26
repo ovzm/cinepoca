@@ -3,6 +3,8 @@ public class Pessoa {
     private String senha;
     private int idade;
     private boolean logado = false;
+    private String usuarioAdmin = "admin";
+    private String senhaAdmin = "abc123";
 
     public int getIdade() {
         return idade;
@@ -30,6 +32,14 @@ public class Pessoa {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public boolean verificarAdmin(String adminDigitado, String senhaAdminDigitada) {
+        if (this.usuarioAdmin != null && this.usuarioAdmin.equals(adminDigitado) &&
+                this.senhaAdmin != null && this.senhaAdmin.equals(senhaAdminDigitada)) {
+            return true;
+        }
+        return false;
     }
 
     public boolean verificarLogin(String nomeDigitado, String senhaDigitada) {
