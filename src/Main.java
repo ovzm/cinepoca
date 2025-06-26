@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
         // VAR GLOBAIS
         boolean iniciar = true;
@@ -42,29 +42,47 @@ public class Main {
             int i = scanner.nextInt();
             switch (i) {
                 case 1: // CADASTRO
-                    System.out.println("-----CINE POCA-----");
-                    System.out.println("Digite seu nome de usuário: ");
-                    pessoa.setNome(scanner.next());
-                    System.out.println("Digite sua idade: ");
-                    pessoa.setIdade(scanner.nextInt());
-                    System.out.println("Digite sua senha: ");
-                    pessoa.setSenha(scanner.next());
+                    int auxiliar = voltarPag();
+
+                    if (auxiliar == 1) {
+                        System.out.println("-----CINE POCA-----");
+                        System.out.println("Digite seu nome de usuário: ");
+                        pessoa.setNome(scanner.next());
+                        System.out.println("Digite sua idade: ");
+                        pessoa.setIdade(scanner.nextInt());
+                        System.out.println("Digite sua senha: ");
+                        pessoa.setSenha(scanner.next());
+                    } else {
+                        break;
+                    }
                     break;
                 case 2: // LOGIN
-                    System.out.println("-----CINE POCA-----");
-                    scanner.nextLine();
-                    System.out.println("Digite seu nome de usuário: ");
-                    nomeTmp = scanner.nextLine();
-                    System.out.println("Digite sua senha: ");
-                    senhaTmp = scanner.nextLine();
-                    if (pessoa.verificarLogin(nomeTmp, senhaTmp)) {
-                        System.out.println("Login realizado com sucesso!");
+                    auxiliar = voltarPag();
+
+                    if (auxiliar == 1) {
+                        System.out.println("-----CINE POCA-----");
+                        scanner.nextLine();
+                        System.out.println("Digite seu nome de usuário: ");
+                        nomeTmp = scanner.nextLine();
+                        System.out.println("Digite sua senha: ");
+                        senhaTmp = scanner.nextLine();
+                        if (pessoa.verificarLogin(nomeTmp, senhaTmp)) {
+                            System.out.println("Login realizado com sucesso!");
+                        } else {
+                            System.out.println("Usuário e senha inválidos!");
+                        }
                     } else {
-                        System.out.println("Usuário e senha inválidos!");
+                        break;
                     }
                     break;
                 case 3: // FILMES
-                    pessoa.verificarAutenticacao();
+                    auxiliar = voltarPag();
+
+                    if (auxiliar == 1) {
+                        pessoa.verificarAutenticacao();
+                    } else {
+                        break;
+                    }
                     break;
                 case 4: // BOMBO
                     pessoa.verificarAutenticacao();
@@ -73,15 +91,22 @@ public class Main {
                     pessoa.verificarAutenticacao();
                     break;
                 case 6: // ADMIN
-                    scanner.nextLine();
-                    System.out.println("Digite o usuário: ");
-                    String adminDigitado = scanner.nextLine();
-                    System.out.println("Digite sua senha: ");
-                    String senhaAdminDigitada = scanner.nextLine();
-                    if (pessoa.verificarAdmin(adminDigitado, senhaAdminDigitada)) {
-                        System.out.println("Deu certo");
+                   auxiliar = voltarPag();
+
+                    if (auxiliar == 1) {
+                        scanner.nextLine();
+                        System.out.println("Digite o usuário: ");
+                        String adminDigitado = scanner.nextLine();
+                        System.out.println("Digite sua senha: ");
+                        String senhaAdminDigitada = scanner.nextLine();
+
+                        if (pessoa.verificarAdmin(adminDigitado, senhaAdminDigitada)) {
+                            System.out.println("Deu certo");
+                        } else {
+                            System.out.println("Usuário e senha inválidos!");
+                        }
                     } else {
-                        System.out.println("Usuário e senha inválidos!");
+                        break;
                     }
                     break;
                 case 0: // SAIR
@@ -89,6 +114,18 @@ public class Main {
                     iniciar = false;
                     break;
             }
+        }
+    }
+
+    public static int voltarPag() {
+        System.out.println("-----CINE POCA-----");
+        System.out.println("1-Realizar Login");
+        System.out.println("2-Voltar");
+        int auxiliar = scanner.nextInt();
+        if (auxiliar == 1) {
+            return auxiliar = 1;
+        } else {
+            return auxiliar = 0;
         }
     }
 }
