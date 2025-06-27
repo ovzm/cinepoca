@@ -30,13 +30,13 @@ public class Main {
         while (iniciar){
             // MENU
             System.out.println("-----CINE POCA-----");
-            System.out.println("1-Cadastro: ");
-            System.out.println("2-Login: ");
-            System.out.println("3-Filmes: ");
-            System.out.println("4-Bombo: ");
-            System.out.println("5-Pagar: ");
-            System.out.println("6-Admin: ");
-            System.out.println("0-Sair: ");
+            System.out.println("1-Cadastro");
+            System.out.println("2-Login");
+            System.out.println("3-Filmes");
+            System.out.println("4-Bombo");
+            System.out.println("5-Pagar");
+            System.out.println("6-Admin");
+            System.out.println("0-Sair");
 
             System.out.println("Escolha uma opção: ");
             int i = scanner.nextInt();
