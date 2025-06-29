@@ -13,8 +13,27 @@ public class CatalogoFilmes {
         filmesLista.add(new Filme("Eu sou a lenda", 100, " Ficção Científica", "+16"));
     }
 
-    public void addFilme(String titulo, int duracao, String genero, String classificacao){
-        filmesLista.add(new Filme(titulo, duracao, genero, classificacao));
+    public void addFilme(){
+        System.out.print("Digite o nome do filme: ");
+        String nome = scanner.nextLine();
+
+        System.out.print("Digite a duração do filme (em minutos): ");
+        int duracao = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Digite o gênero do filme: ");
+        String genero = scanner.nextLine();
+
+        System.out.print("Digite a classificação indicativa: ");
+        String classificacao = scanner.nextLine();
+
+        filmesLista.add(new Filme(nome, duracao, genero, classificacao));
+        System.out.println("Filme adicionado com sucesso! " +
+                "Deseja ver a lista de filmes?");
+        String resposta = scanner.nextLine();
+        if (resposta.equals("Sim") || resposta.equals("sim") || resposta.equals("s") || resposta.equals("S")) {
+            listarFilmes();
+        }
     }
 
     public void listarFilmes() {

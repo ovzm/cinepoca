@@ -12,27 +12,12 @@ public class Main {
 
         // FILMES
         CatalogoFilmes catalogo = new CatalogoFilmes();
-//
-//        System.out.print("Nome do filme: ");
-//        String nome = scanner.nextLine();
-//
-//        System.out.print("Duração do filme (em minutos): ");
-//        int duracao = scanner.nextInt();
-//        scanner.nextLine();
-//
-//        System.out.print("Gênero do filme: ");
-//        String genero = scanner.nextLine();
-//
-//        System.out.print("Classificação indicativa: ");
-//        String classificacao = scanner.nextLine();
-//
-//        catalogo.listarFilmes();
-//        catalogo.addFilme(nome, duracao, genero, classificacao);
-//        System.out.println("Filme adicionado com sucesso!");
+
+        catalogo.listarFilmes();
+        catalogo.addFilme();
         catalogo.listarFilmes();
         catalogo.removerFilme();
         catalogo.listarFilmes();
-
 
         // SESSÕES
 //        Sessao sessaoC1 = new Sessao(1,"18:00", "Inglês", 30, filme1);
