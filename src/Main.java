@@ -11,21 +11,38 @@ public class Main {
         Pessoa pessoa = new Pessoa();
 
         // FILMES
-        Filme filme1 = new Filme("Creed III", 116, "Drama", "+12");
-        Filme filme2 = new Filme("Pecadores", 137, "Ação, Terror", "+18");
-        Filme filme3 = new Filme("Eu sou a lenda", 100, " Ficção Científica", "+16");
+        CatalogoFilmes catalogo = new CatalogoFilmes();
+//
+//        System.out.print("Nome do filme: ");
+//        String nome = scanner.nextLine();
+//
+//        System.out.print("Duração do filme (em minutos): ");
+//        int duracao = scanner.nextInt();
+//        scanner.nextLine();
+//
+//        System.out.print("Gênero do filme: ");
+//        String genero = scanner.nextLine();
+//
+//        System.out.print("Classificação indicativa: ");
+//        String classificacao = scanner.nextLine();
+//
+//        catalogo.listarFilmes();
+//        catalogo.addFilme(nome, duracao, genero, classificacao);
+//        System.out.println("Filme adicionado com sucesso!");
+        catalogo.listarFilmes();
+        catalogo.removerFilme();
+        catalogo.listarFilmes();
+
 
         // SESSÕES
-        Sessao sessaoC1 = new Sessao(1,"18:00", "Inglês", 30, filme1);
-        Sessao sessaoC2 = new Sessao(2,"20:30", "Português", 30, filme1);
-
-        Sessao sessaoP1 = new Sessao(2,"18:00", "Inglês", 30, filme2);
-        Sessao sessaoP2 = new Sessao(3,"22:00", "Português", 30, filme2);
-
-        Sessao sessaoL1 = new Sessao(3,"19:00", "Português", 30, filme3);
-        Sessao sessaoL2 = new Sessao(1,"21:30", "Inglês", 30, filme3);
-
-        System.out.println(sessaoC1.getNomeDoFilme());
+//        Sessao sessaoC1 = new Sessao(1,"18:00", "Inglês", 30, filme1);
+//        Sessao sessaoC2 = new Sessao(2,"20:30", "Português", 30, filme1);
+//
+//        Sessao sessaoP1 = new Sessao(2,"18:00", "Inglês", 30, filme2);
+//        Sessao sessaoP2 = new Sessao(3,"22:00", "Português", 30, filme2);
+//
+//        Sessao sessaoL1 = new Sessao(3,"19:00", "Português", 30, filme3);
+//        Sessao sessaoL2 = new Sessao(1,"21:30", "Inglês", 30, filme3);
 
         while (iniciar){
             // MENU
@@ -101,7 +118,10 @@ public class Main {
                         String senhaAdminDigitada = scanner.nextLine();
 
                         if (pessoa.verificarAdmin(adminDigitado, senhaAdminDigitada)) {
-                            System.out.println("Deu certo");
+                            System.out.println("-----CINE POCA ADMIN-----");
+                            System.out.println("1-Administrar Filmes");
+                            System.out.println("2-Administrar Sessões");
+                            System.out.println("3-Administrar Bombos");
                         } else {
                             System.out.println("Usuário e senha inválidos!");
                         }
