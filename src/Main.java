@@ -9,15 +9,7 @@ public class Main {
         String nomeTmp = "";
         String senhaTmp = "";
         Pessoa pessoa = new Pessoa();
-
-        // FILMES
         CatalogoFilmes catalogo = new CatalogoFilmes();
-
-        catalogo.listarFilmes();
-        catalogo.addFilme();
-        catalogo.listarFilmes();
-        catalogo.removerFilme();
-        catalogo.listarFilmes();
 
         // SESSÕES
 //        Sessao sessaoC1 = new Sessao(1,"18:00", "Inglês", 30, filme1);
@@ -31,6 +23,7 @@ public class Main {
 
         while (iniciar){
             // MENU
+            System.out.println();
             System.out.println("-----CINE POCA-----");
             System.out.println("1-Cadastro");
             System.out.println("2-Login");
@@ -47,6 +40,7 @@ public class Main {
                     int auxiliar = voltarPag();
 
                     if (auxiliar == 1) {
+                        System.out.println();
                         System.out.println("-----CINE POCA-----");
                         System.out.println("Digite seu nome de usuário: ");
                         pessoa.setNome(scanner.next());
@@ -62,6 +56,7 @@ public class Main {
                     auxiliar = voltarPag();
 
                     if (auxiliar == 1) {
+                        System.out.println();
                         System.out.println("-----CINE POCA-----");
                         scanner.nextLine();
                         System.out.println("Digite seu nome de usuário: ");
@@ -103,10 +98,50 @@ public class Main {
                         String senhaAdminDigitada = scanner.nextLine();
 
                         if (pessoa.verificarAdmin(adminDigitado, senhaAdminDigitada)) {
+                            System.out.println();
                             System.out.println("-----CINE POCA ADMIN-----");
                             System.out.println("1-Administrar Filmes");
                             System.out.println("2-Administrar Sessões");
                             System.out.println("3-Administrar Bombos");
+                            System.out.println("4-Voltar");
+                            System.out.println("Escolha sua opção:");
+                            int a = scanner.nextInt();
+
+                            switch (a) {
+                                case 1: // ADMINISTRAR FILMES
+                                    System.out.println();
+                                    System.out.println("-----CINE POCA ADMIN-----");
+                                    System.out.println("1-Adicionar Filme");
+                                    System.out.println("2-Remover Filme");
+                                    System.out.println("3-Voltar");
+                                    a = scanner.nextInt();
+                                    scanner.nextLine();
+                                    if (a == 1) {
+                                        System.out.println();
+                                        catalogo.listarFilmes();
+                                        System.out.println();
+                                        catalogo.addFilme();
+                                    } else if (a == 2) {
+                                        System.out.println();
+                                        catalogo.removerFilme();
+                                        System.out.println();
+                                        catalogo.listarFilmes();
+                                    } else {
+                                        break;
+                                    }
+                                    break;
+
+                                case 2: // ADMINISTRAR SESSÕES
+
+                                    break;
+
+                                case 3: // ADMINISTRAR BOMBOS
+
+                                    break;
+
+                                case 4: // VOLTAR
+                                    break;
+                            }
                         } else {
                             System.out.println("Usuário e senha inválidos!");
                         }
@@ -124,7 +159,7 @@ public class Main {
 
     public static int voltarPag() {
         System.out.println("-----CINE POCA-----");
-        System.out.println("1-Realizar Login");
+        System.out.println("1-Continuar");
         System.out.println("2-Voltar");
         int auxiliar = scanner.nextInt();
         if (auxiliar == 1) {
